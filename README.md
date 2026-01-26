@@ -1,7 +1,4 @@
 # ResponseOs-incident-management-software
-An incident management platform for real time tracking,identifying and resolving incidents
-
-# AI Incident Response Platform
 
 This project is a personal attempt to understand how real engineering teams handle production failures. It is not a demo app and not a tutorial exercise. The goal is to build a system that manages what happens **after** something breaks in production.
 
