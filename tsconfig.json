@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES2022", //used to not downgrade js from this version below
+        "module": "ESNext", //uses modern import/export and not require
+        "moduleResolution": "Bundler", //resolve method is new
+        "strict": true, //type safety checks and no any types should be there, so it is strict
+        "esModuleInterop": true, //
+        "skipLibCheck": true//this tells the ts to skip checking node modules every time it is run
+    }
+}
+//This structure makes sure not to run old versions of js or ts and run the modern versions, you could control the versions the way you want

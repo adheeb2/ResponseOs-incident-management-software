@@ -1,5 +1,13 @@
 {
+	"scripts": {
+		"dev": "pnpm tsx app/server.ts"
+	},
 	"dependencies": {
 		"fastify": "^5.7.2"
+	},
+	"devDependencies": {
+		"@types/node": "^25.0.10",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3"
 	}
 }
