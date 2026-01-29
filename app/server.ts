@@ -9,7 +9,7 @@ app.get('/', async () => {
 
 const start = async () => {
     try {
-        await app.listen({ port: 3000 }, (error, address) => {
+        app.listen({ port: 3000 }, (error, address) => {
             if (error) throw error
             console.log(`server running on ${address}`)
         });
