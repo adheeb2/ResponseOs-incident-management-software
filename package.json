@@ -3,7 +3,8 @@
 		"dev": "pnpm tsx app/server.ts",
 		"docker:dev": "docker compose -f database/compose.yml up ",
 		"docker:down": "docker compose -f database/compose.yml down",
-		"migrate:dev":"pnpm drizzle-kit push"
+		"migrate:dev":"pnpm drizzle-kit push",
+		"migrate:gen":"pnpm drizzle-kit generate"
 	},
 	"dependencies": {
 		"dotenv": "^17.2.3",
