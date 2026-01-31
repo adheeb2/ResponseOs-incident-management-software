@@ -6,8 +6,8 @@
 
 ### 1. Zod and drizzle orm
 - Then i understood more about zod and drizzle orm
-- zod is mostly used for runtime data validation(runtime data usually means data that comes from outside like a http request and not found in the code.For eg: a data that comes from an api or from the client side) and parsing, so it doesnt require a database to work. It just checks whether the data is valid or is shaped correctly at runtime
+- **zod** is mostly used for runtime data validation(runtime data usually means data that comes from outside like a http request and not found in the code.For eg: a data that comes from an api or from the client side) and parsing, so it doesnt require a database to work. It just checks whether the data is valid or is shaped correctly at runtime
 - typescript doesnt exist in runtime.it only exist in compile time. So whenever a runtime data comes, zod is the one that checks or  validates the data
-- Then i added drizzle orm to it, which is responsible for data migration,schema creation and generation
+- Then i added **drizzle orm** to it, which is responsible for data migration,schema creation and generation
 - i learned to set up drizzle orm from the documentation rather than using any sort of help from an ai
 
