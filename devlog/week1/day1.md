@@ -1,4 +1,4 @@
-**Devlog — Fastify + TypeScript Day**
+**Devlog — Fastify + TypeScript**
 
 Today i learned about fastify and its basics.The syntax felt okay. I learned why @types/node was used in typescript
 - @types/node is required so that typescript gets an idea on what these functions are, what are its input and output etc(eg:fs,buffer,process)
