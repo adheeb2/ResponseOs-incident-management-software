@@ -1,6 +1,8 @@
 {
 	"scripts": {
-		"dev": "pnpm tsx app/server.ts"
+		"dev": "pnpm tsx app/server.ts",
+		"docker:dev": "docker compose -f database/compose.yml up ",
+		"docker:down": "docker compose -f database/compose.yml down"
 	},
 	"dependencies": {
 		"fastify": "^5.7.2",
