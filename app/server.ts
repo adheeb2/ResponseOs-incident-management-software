@@ -1,6 +1,9 @@
 import Fastify, { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import mongo from 'fastify'
+import { request } from 'node:http';
 const app = Fastify({ logger: true });//this logger is from pino, it was already installed by fastify.Pino is a logging library which gives out details in json format
 //The level means the severity of log, ranging from 10-60,30 being the normal
+
 
 app.get('/', {
     handler: async (request, reply) => {
@@ -15,11 +18,27 @@ async function userRoutes(fastify: FastifyInstance) {
             }
         }>, reply: FastifyReply) => {
             const body = request.body
-            console.log(body)
-            return reply.code(201).send(body)
+   
+            return reply.code(201).send(request.user)
         }
     })
+    fastify.log.info("User routes registered")
 }
+
+async function dbConnector(fastify:FastifyInstance){
+    fastify.register(mongo,{
+    url:"mongodb://localhost:27017/fastify"
+})
+fastify.log.info("Connected to database")
+}
+app.decorateRequest("user","")
+
+app.addHook("preHandler",async(request:FastifyRequest,reply:FastifyReply)=>{
+    request.user = "Bob jones"
+})
+
+app.register(dbConnector)
+
 
 app.register(userRoutes, { prefix: "/api/users" });
 
