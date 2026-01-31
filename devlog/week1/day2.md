@@ -1,4 +1,4 @@
-**Devlog — Day2**
+# Devlog — Day2
 - Today i have started by learning docker compose. Postgresql image was pulled from docker hub and was added in the compose.yml file in database folder
 - Inorder to run the docker easily, i added a command in package.json, But i was faced with an issue where i was not able to add the specific location of compose file to it
 - '-f' needs to be added to the commands for the location to be made seen
