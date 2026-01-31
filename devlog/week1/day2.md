@@ -1,7 +1,7 @@
 # Devlog — Day2
 - Today i have started by learning docker compose. Postgresql image was pulled from docker hub and was added in the compose.yml file in database folder
-- Inorder to run the docker easily, i added a command in package.json, But i was faced with an issue where i was not able to add the specific location of compose file to it
-- '-f' needs to be added to the commands for the location to be made seen
+- Inorder to run the docker easily, i added a command in package.json,Faced an issue where Docker could not find the compose file.
+- '-f' needs to be added to the commands to specify the path to the compose file.
 - i follow the method of adding it into package.json becuase the original commands could be long and difficult to memorize,also these original commands could work only where it is stored. I want to retrieve it from the root folder itself, so it is best to add a command in package.json
 
 ### 1. Zod and drizzle orm

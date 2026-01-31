@@ -2,14 +2,21 @@
 	"scripts": {
 		"dev": "pnpm tsx app/server.ts",
 		"docker:dev": "docker compose -f database/compose.yml up ",
-		"docker:down": "docker compose -f database/compose.yml down"
+		"docker:down": "docker compose -f database/compose.yml down",
+		"migrate:dev":"pnpm drizzle-kit push"
 	},
 	"dependencies": {
+		"dotenv": "^17.2.3",
+		"drizzle-orm": "^0.45.1",
+		"drizzle-zod": "^0.8.3",
 		"fastify": "^5.7.2",
+		"pg": "^8.18.0",
 		"zod": "^4.3.6"
 	},
 	"devDependencies": {
 		"@types/node": "^25.0.10",
+		"@types/pg": "^8.16.0",
+		"drizzle-kit": "^0.31.8",
 		"tsx": "^4.21.0",
 		"typescript": "^5.9.3"
 	}
