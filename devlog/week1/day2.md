@@ -10,4 +10,5 @@
 - typescript doesnt exist in runtime.it only exist in compile time. So whenever a runtime data comes, zod is the one that checks or  validates the data
 - Then i added **DRIZZLE ORM** to it, which is responsible for data migration,schema creation and generation
 - i learned to set up drizzle orm from the documentation rather than using any sort of help from an ai
-
+- So a basic backend using fastify,docker having postgresql image, drizzle for schema generation and migration, and zod is been created. So a basic backend structure is formed
+- Next step is for me to create schemas for this project.
