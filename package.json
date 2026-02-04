@@ -3,14 +3,15 @@
 		"dev": "pnpm tsx app/server.ts",
 		"docker:dev": "docker compose -f database/compose.yml up ",
 		"docker:down": "docker compose -f database/compose.yml down",
-		"migrate:dev":"pnpm drizzle-kit push",
-		"migrate:gen":"pnpm drizzle-kit generate"
+		"migrate:dev": "pnpm drizzle-kit push",
+		"migrate:gen": "pnpm drizzle-kit generate"
 	},
 	"dependencies": {
 		"dotenv": "^17.2.3",
 		"drizzle-orm": "^0.45.1",
 		"drizzle-zod": "^0.8.3",
 		"fastify": "^5.7.2",
+		"nanoid": "^5.1.6",
 		"pg": "^8.18.0",
 		"zod": "^4.3.6"
 	},
