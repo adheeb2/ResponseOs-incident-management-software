@@ -10,3 +10,7 @@
 - 4) relationship must be auditable
 - 5) relationship should survive deletions
 - 6) relationship answers “who was involved?”
+
+- The initial building of columns for tables were difficult at first, but i got to pace up better after some trial and errors. Then came the needs for creating relations, enum values,indexes and uniques
+- I understood and documented in schema codes on what indexes and uniques were, and why they were used
+- i seperated schemas in each files for easier handling
