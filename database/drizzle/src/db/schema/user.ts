@@ -1,4 +1,4 @@
-import { pgTable,pgEnum ,text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, pgEnum, text, timestamp } from "drizzle-orm/pg-core";
 import { nanoid } from "nanoid";
 import { time } from "node:console";
 import { date } from "zod";
@@ -8,24 +8,41 @@ import { date } from "zod";
 //So inorder to generate it automatically, we use defaultfn. And it expects a function and to return a value, so for that, here we use nanoid
 //nanoid is generated in app runtime and not by database. so id is generated even before the data is inserted
 
-export const roleEnum = pgEnum('role',["admin","staff"])
+export const roleEnum = pgEnum('role', ["admin", "staff"])
 export const userTable = pgTable("user", {
     id: text().primaryKey().notNull().$defaultFn(() => nanoid()),
     name: text().notNull(),
     email: text().notNull().unique(),
     password: text().notNull(),
     contactNumber: text(),
-    role:roleEnum('role').notNull().default('admin'),
+    role: roleEnum('role').notNull().default('admin'),
     createdAt: timestamp({ withTimezone: true, mode: "date" }).defaultNow().notNull(),
     updatedAt: timestamp({ withTimezone: true, mode: "date" }).defaultNow().notNull().$onUpdateFn(() => new Date())
 })
 export const team = pgTable("team", {
-    id:text().primaryKey().notNull().$defaultFn(()=>nanoid()),
-    userId:text().notNull().references(()=>userTable.id),
-    name:text().notNull(),
-    description:text(),
-    createdAt:timestamp({withTimezone:true,mode:"date"}).notNull().defaultNow(),
-    updatedAt:timestamp({withTimezone:true,mode:"date"}).notNull().defaultNow().$onUpdateFn(()=>new Date())
+    id: text().primaryKey().notNull().$defaultFn(() => nanoid()),
+    name: text().notNull(),
+    description: text(),
+    createdAt: timestamp({ withTimezone: true, mode: "date" }).notNull().defaultNow(),
+    updatedAt: timestamp({ withTimezone: true, mode: "date" }).notNull().defaultNow().$onUpdateFn(() => new Date())
 })
+export const services = pgTable("services", {
+    id: text().notNull().$defaultFn(() => (nanoid())),
+    name: text().notNull(),
+    description: text(),
+    criticality: text(),
+    environment: text(),
+    createdAt: timestamp({ withTimezone: true, mode: "date" }).notNull().defaultNow(),
+    updatedAt: timestamp({ withTimezone: true, mode: "date" }).notNull().defaultNow().$onUpdateFn(() => new Date())
 
-export const userTeam = pgTable("userTeam", {})
+})
+export const runbooks = pgTable("runboooks", {
+    id: text().notNull().$defaultFn(() => (nanoid())),
+    serviceId: text().references(() => services.id),
+    name: text().notNull(),
+    description: text(),
+    createdAt: timestamp({ withTimezone: true, mode: "date" }).notNull().defaultNow(),
+    updatedAt: timestamp({ withTimezone: true, mode: "date" }).notNull().defaultNow().$onUpdateFn(() => new Date())
+
+
+})
