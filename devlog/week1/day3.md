@@ -14,3 +14,7 @@
 - The initial building of columns for tables were difficult at first, but i got to pace up better after some trial and errors. Then came the needs for creating relations, enum values,indexes and uniques
 - I understood and documented in schema codes on what indexes and uniques were, and why they were used
 - i seperated schemas in each files for easier handling
+
+
+- next step is to set up psql, insert records and run queries manually and then to write API's
+- i prefer this method so that i could really understand what happens internally what the queries do and how can i manage it as well
