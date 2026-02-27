@@ -3,4 +3,14 @@ There was difficulty in setting up psql. i wanted to use the values in docker co
 1. unix domain socket
 2. tcp
 
-eventhough i was familiar with tcp, i wasnt sure on what unix was and what it does.
+eventhough i was familiar with tcp, i wasnt sure on what **unix** was and what it does.
+basically you can connect psql through both ways. unix is one of those methods
+- **unix** is a method for processes to communicate on a single machine without any network overheads, so it doesnt require any ip address. it communicates through socket file. these are stored in memory
+since docker containers dont share unix sockets with host by default, i was facing this error:
+```bash 
+sudo -u postgres psql  -p 5433
+psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5433" failed: No such file or directory
+Is the server running locally and accepting connections on that socket?
+
+```
+
