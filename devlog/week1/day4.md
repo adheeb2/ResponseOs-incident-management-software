@@ -22,3 +22,33 @@ this is the command to run psql:
 sudo -u postgres psql -h localhost -d app_db -p 5433
 
 ```
+## Inside psql
+- i have now got inside psql, now i just generated values for service table. Now when we are inside psql, we can generate human readable format for id(since the schema is shown as nanoid, so we might think we need to add values like that, but that is not required when we are inside psql).
+- if we never gave values and assume that id will be generated automatically, you will get an error showing non null constraint failed. i will provide the clear explanation below:
+- Why you can’t rely on nanoid() in psql
+
+    Your schema says:
+
+    id: text().primaryKey().$defaultFn(() => nanoid())
+
+    Important detail:
+
+    $defaultFn() runs inside your Node/Drizzle application, not inside PostgreSQL.
+
+    So when you insert through the app:
+
+    INSERT INTO services (...)
+
+    Drizzle does this before sending SQL:
+
+    id = nanoid()
+
+    But when you run SQL directly in psql, the database does not know what nanoid is.
+
+    Postgres sees this column as:
+
+    id TEXT PRIMARY KEY NOT NULL
+
+    So if you don't supply it → insert fails.
+
+- so you can manually give human readable format

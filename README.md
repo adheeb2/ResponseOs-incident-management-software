@@ -138,3 +138,5 @@ This project follows a simple branch-based workflow:
 This repository is meant to be a long-running system that evolves over months. Each phase adds new complexity: observability, cloud deployment, performance tuning, AI integration, and security hardening.
 
 By the end, this should resemble a real internal tool that engineering teams could use during their worst production days.
+
+- note: type ctrl+ shift+ v to check how the readme files will look like in github without going to github and checking it after each commmits
